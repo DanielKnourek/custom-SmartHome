@@ -1,100 +1,138 @@
-# Used commands
+# Working commands
 
-## Sync FROM atached drive to NAS
+commands to do various tasks to just to document what i used
 
-Mounting drive to NAS
+## Useful links
+
+Needed to make helm & kubectl work in ssh
+
+[tutorial](https://www.reddit.com/r/truenas/comments/wqzkqq/scale_how_i_run_helm_and_kubectl_from_the_command/)
+
+[kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#kubectl-context-and-configuration)
+[kubectl cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
+
+## ix apps
 
 ```BASH
-mkdir /mnt/usbDrive0
-mount /dev/sde1 /mnt/usbDrive0
+# list all helm apps
+#  ix-* is app instaled via SCALE UI
+helm list --all-namespaces 
 ```
 
 ```BASH
-sudo nohup sudo rsync --ignore-existing -ra --progress --log-file=/home/rsync.progress.log /mnt/usbDrive0/_zaloha\ NAS/ /mnt/HomeArchive/Archive &
+# scale ix-trafeik to 1 replica
+kubectl scale -n ix-traefik --replicas=1 deployment traefik
 
-watch tail /home/rsync.progress.log 
+# get current traefik configuration (installation)
+helm get values -n ix-traefik traefik  | less
+```
+
+## instaling standelone traefik
+
+```BASH
+helm repo add traefik https://helm.traefik.io/traefik
+helm repo update
+helm install traefik traefik/traefik
+```
+
+## setup a minecraft server
+
+[https://docker-minecraft-server.readthedocs.io/en/latest/commands/](https://docker-minecraft-server.readthedocs.io/en/latest/commands/)
+
+[https://spacelift.io/blog/kubectl-auto-completion](https://spacelift.io/blog/kubectl-auto-completion)
+
+```BASH
+# autocomplete for kubectl
+kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
+echo 'alias kl=kubectl' >>~/.bashrc
+echo 'complete -o default -F __start_kubectl kl' >>~/.bashrc
+
+# or 
+
+alias kl='sudo k3s kubectl'
+kl config set-context --current --namespace=default
+  # find pod id   
+kl get pods
+  #   OR
+kl get pods -A
+
+  # exec into pod and send commadns to server
+kl exec -it minecraft-stoneblock-minecraft-java-769758c4bb-l2hsr -- 
+rcon-cli
+
+kl exec -it $(kl get pods -o=custom-columns=NAME:.metadata.name | tail -1) -- /bin/bash
+```
+
+note:
+
+- [https://tcpshield.com/](https://tcpshield.com/)
+
+- [iptables-cheatsheet.md](https://gist.github.com/egernst/2c39c6125d916f8caa0a9d3bf421767a)
+- [simple iptables cheatsheet](https://andreafortuna.org/2019/05/08/iptables-a-simple-cheatsheet/)
+
+## forwarding to a service on a different port
+
+```BASH
+# reset all rules
+iptables -F
+iptables -t nat -F
+iptables -X
+
+# forward port 25566 to
+iptables -t nat -A PREROUTING -p tcp --dport 25566 -j DNAT --to-destination 192.168.0.21:25566
+iptables -t nat -A POSTROUTING -p tcp -d 10.147.21.5 --dport 25566 -j SNAT --to-source 10.147.21.5
+iptables -t nat -A PREROUTING -p udp --dport 25566 -j DNAT --to-destination 192.168.0.21:25566
+iptables -t nat -A POSTROUTING -p udp -d 192.168.0.21 --dport 25566 -j SNAT --to-source 10.147.21.1
+
+# show rules
+iptables -t nat -L -n -v
 ```
 
 ```BASH
-sudo rsync --ignore-existing -ra --progress /mnt/s/ root@192.168.90.21:/mnt/HomeArchive/HomeArchiveData
+  apt install netcat -y
 
-sudo rsync --ignore-existing -ra --progress /mnt/e/_zaloha\ NAS/Vašek/ root@192.168.90.21:/mnt/HomeArchive/HomeArchiveData/Vašek
+  nc -k -l 25566 < /dev/null | nc 192.168.0.21 25566 > /dev/null &
 
-sudo rsync --ignore-existing -ra --progress /mnt/h/Společné/ root@192.168.90.21:/mnt/HomeArchive/HomeArchiveData/Společné
+#   OR
 
-sudo rsync --ignore-existing -ra --progress /mnt/h/Táta/ root@192.168.90.21:/mnt/HomeArchive/HomeArchiveData/Táta
-```
+    ip link add br0 type bridge
+    ip link set zthnhlbjlt master br0
 
-## cleaning nohup.out
+    # test ports are open
+    nc -zv {ip} {port}
+    nmap -sTU -O {ip}
 
-```BASH
-sudo rm /home/rsync.progress.log
-```
-
-## remove nohup.out in directory
-
-```BASH
-find . -name nohup.out
-find . -name nohup.out | xargs rm
+    # test comunication using netcat
+    nc -k -l 1234
 ```
 
 ```BASH
-sudo nohup sudo mv /mnt/HomeArchive/Archive/* /mnt/HomeArchive/HomeArchiveData/ &
+  # OR ngrok
+  curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
 
-sudo nohup sudo rsync --remove-source-files --ignore-existing -ra --progress --log-file=/home/rsync.progress.log /mnt/HomeArchive/Archive/ /mnt/HomeArchive/HomeArchiveData &
+  ngrok config add-authtoken 1pWLMplk9UeSEDLKOJZ5wqkmo0V_71t39ZkJgagwcG5ZokvAt
+
+  ngrok tcp 25566
 ```
 
-```BASH
-root@dakara[~]# zpool status
-  pool: HomeArchive
- state: DEGRADED
-status: One or more devices are faulted in response to persistent errors.
-        Sufficient replicas exist for the pool to continue functioning in a
-        degraded state.
-action: Replace the faulted device, or use 'zpool clear' to mark the device
-        repaired.
-config:
-
-        NAME                                      STATE     READ WRITE CKSUM
-        HomeArchive                               DEGRADED     0     0     0
-          raidz1-0                                DEGRADED     0     0     0
-            c32dae76-7001-4827-9fdd-0e1e1a173f62  ONLINE       0     0     0
-            64b8e4a7-d03d-4543-8423-010a31fab6b4  FAULTED     35     0     0  too many errors
-            52d80bcf-7c1d-4174-8329-e4f04b982711  ONLINE       0     0     0
-```
-
-commands to create new partiton
+### Yet another backing up to an external drive
 
 ```BASH
-gdisk /dev/sda
-        p
-        n
-        <enter> # part number
-        <enter> # first sector
-        <enter> # last sector
-        BF01 # type
-        w
-        y
-```
+  sudo mount /dev/sdc1 /mnt/external-drive
 
-find Guuid
+  # copy from HomeArchive to external drive
+  sudo rsync --ignore-existing -ra --progress --log-file=/home/rsync.progress.log /mnt/HomeArchive/HomeArchiveData/Vašek/ /mnt/external-drive/_zaloha\ NAS/Vašek/
+  df -h /mnt/external-drive
 
-```BASH
-gdisk /dev/sda
-        i
-        4
-```
+  # nohup sudo rsync --ignore-existing -ra --progress --log-file=/home/rsync.progress.log /mnt/HomeArchive/Archive/ /mnt/external-drive/_zaloha NAS &
 
-- GUID: D08B1137-4FA5-4749-BCFB-F3BD2C12EAFC  
-        to_lowecase
-- d08b1137-4fa5-4749-bcfb-f3bd2c12eafc
+  sudo mkdir -p /mnt/photo-movie-drive
+  sudo install -d -m 0770 -o root /mnt/photo-movie-drive
+  sudo mount /dev/sde2 /mnt/photo-movie-drive
 
-reload partition table and create new pool
 
-```BASH
-partprobe
-zpool create -f ssd-data /dev/sda4
-# zpool create ssd-data gptid/d08b1137-4fa5-4749-bcfb-f3bd2c12eafc
-# zpool create ssd-data /dev/disk/by-partuuid/d08b1137-4fa5-4749-bcfb-f3bd2c12eafc
-zpool export ssd-data
+  sudo rsync --ignore-existing -ra --progress --log-file=/home/rsync.progress.log /mnt/HomeArchive/HomeArchiveData/Vašek/ /mnt/photo-movie-drive/3TB Data-Filmy-Foto
+  df -h /mnt/photo-movie-drive
+
+  sudo rsync --ignore-existing -czraP -t --progress lantean@dakara:/mnt/HomeArchive/HomeArchiveData/Daniel/* /mnt/e/Daniel/
 ```
