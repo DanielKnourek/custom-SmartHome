@@ -1,6 +1,6 @@
 # Home NAS - Dakara
 
 OS: TrueNAS Scale
-version: TrueNAS-SCALE-22.02.1.iso
+version: TrueNAS-SCALE-22.02.3.iso
 
-NAS Docs version 0.2.1
+NAS Docs version 0.3.1
