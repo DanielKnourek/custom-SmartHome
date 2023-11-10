@@ -1,5 +1,6 @@
 # Home NAS - Dakara
 
-Open media vault
+OS: TrueNAS Scale
+version: TrueNAS-SCALE-22.02.1.iso
 
-NAS Docs version 0.1.3
+NAS Docs version 0.2.1
