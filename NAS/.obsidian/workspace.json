@@ -1,0 +1,233 @@
+{
+  "main": {
+    "id": "92753dbd6332cd15",
+    "type": "split",
+    "children": [
+      {
+        "id": "f1aa89e6ac05ae3d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3556a8900c038082",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "obsidian-projects",
+              "state": {},
+              "pinned": true
+            }
+          },
+          {
+            "id": "aada1f98b2a8a2e0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7904c1783df1cec4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NotionExported/IT Home TO-DOs/write Docs - nextcloud setup/write Docs - nextcloud setup.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0d7eefbee3594f56",
+    "type": "split",
+    "children": [
+      {
+        "id": "e77b9d9bd7b3f0fb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "592e22878ee8a787",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "bdb7c7242b81c292",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3c305c498b978250",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 270.5
+  },
+  "right": {
+    "id": "5313af23b3332efa",
+    "type": "split",
+    "children": [
+      {
+        "id": "50e3fd9d2826b6fe",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8540a25a4e6d8eb6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "eedb27b9e1ab78a9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "90e3ba4901f5ec65",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "727f115694ce7d26",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md"
+              }
+            }
+          },
+          {
+            "id": "ef2e69dedb5146d2",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-projects:Open projects": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "aada1f98b2a8a2e0",
+  "lastOpenFiles": [
+    "NotionExported/IT Home TO-DOs/write Docs - nextcloud setup/write Docs - nextcloud setup.md",
+    "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
+    "Dakara Tasks/write Docs - Nextcloud setup/_Attachments/conf-app-nextcloud-external-storage.png",
+    "Dakara Tasks/write Docs - Nextcloud setup/_Attachments/conf-app-nextcloud-lldap-4.png",
+    "Dakara Tasks/write Docs - Nextcloud setup/_Attachments/conf-app-nextcloud-lldap-3.png",
+    "Dakara Tasks/write Docs - Nextcloud setup/_Attachments/conf-app-nextcloud-lldap-2.png",
+    "Dakara Tasks/write Docs - Nextcloud setup/_Attachments/conf-app-nextcloud-lldap-1.png",
+    "_Assets/Templates/Steps and values callout.md",
+    "Dakara Tasks/write Docs - Truecharts setup/write Docs - Truecharts setup.md",
+    "Dakara Tasks/write Docs - Nextcloud setup/_Attachments/app-nextcloud-28.0.4_29.10.33.png",
+    "Dakara Tasks/write Docs - Nextcloud setup/_Attachments",
+    "Dakara Tasks/write Docs - Nextcloud setup",
+    "Dakara Tasks/_Attachments/app-nextcloud-28.0.4_29.10.33.png",
+    "Dakara Tasks/_Attachments",
+    "NotionExported/IT Home TO-DOs/HEIMDALL add all links.md",
+    "NotionExported/IT Home TO-DOs/write Docs - lldap/write Docs - lldap.md",
+    "NotionExported/Dakara [TrueNAS SCALE]/Untitled Database.md",
+    "NotionExported/IT Home TO-DOs/IT Home TO-DOs.md",
+    "Dakara Tasks/write Docs - lldap.md",
+    "(write Docs - lldap.md",
+    "tmp Tasks/Heimdall config.md",
+    "NotionExported/IT Home TO-DOs/write Docs - Truecharts setup/write Docs - Truecharts setup.md",
+    "Dakara Tasks/Cloudflared Tunnel.md",
+    "Dakara Tasks/write Docs - Ngrok.md",
+    "Dakara Tasks/HEIMDALL add all links.md",
+    "Dakara Tasks/Dakara Tasks.md",
+    "UsedCommands.md",
+    "NotionExported/IT Home TO-DOs/Connection using a VPN.md",
+    "NotionExported/IT Home TO-DOs/torrent client.md",
+    "NotionExported/IT Home TO-DOs/write Docs - certificate authority.md",
+    "NotionExported/IT Home TO-DOs/write Docs - photoprism setup.md",
+    "NotionExported/IT Home TO-DOs/write Docs - truecharts essentials.md",
+    "Tasks/Tasks datasheet.md",
+    "NotionExported/IT Home TO-DOs/Authelia global authentication.md",
+    "Dakara Tasks/HOME ASSISTANT fix.md",
+    "_Assets/Scripts/dv-StatusCategoryUtils.js",
+    "_Assets/Scripts/dv-getStatusCategory.js",
+    "_Assets/Scripts/dv_",
+    "Dakara Tasks/write Docs - Truecharts setup/_Attachments/conf-add-TrueCharts-catalog.png",
+    "Dakara Tasks/write Docs - Truecharts setup/_Attachments/config-certificates-ACME.png",
+    "Dakara Tasks/write Docs - Truecharts setup/_Attachments/conf-certificates-dakara-stream-cloudflare.png",
+    "Untitled",
+    "_Assets/Scripts/folder_links.js",
+    "_Assets/Scripts",
+    "Dakara Tasks/write Docs - Truecharts setup/_Attachments",
+    "Untitled.canvas",
+    "Dakara Tasks/Untitled.canvas"
+  ]
+}
