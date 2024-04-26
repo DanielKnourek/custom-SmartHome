@@ -99,6 +99,9 @@ update('dependency_completion', `${result.result}%`, dv.current().file.path)
 | 3. Type of Storage            | Host Path                                  |
 | 3. Host Path                  | /mnt/HomeArchive/HomeArchiveData/Downloads |
 | 3. Mount Path                 | /mnt/HomeArchiveData/Downloads             |
+| 4. Type of Storage            | Host Path                                  |
+| 4. Host Path                  | /mnt/ssd-data0/app-data/Nextcloud/skeleton |
+| 4. Mount Path                 | /mnt/skeleton             |
 | Ingress →                     |                                            |
 | Main Ingress → Enable Ingress | Yes                                        |
 | - Hosts →                     |                                            |
@@ -134,7 +137,7 @@ update('dependency_completion', `${result.result}%`, dv.current().file.path)
 | Preview Generator | 5.5.0 | [settings/apps/multimedia/previewgenerator](https://archive.dakara.stream/settings/apps/multimedia/previewgenerator) |
 
 #### 3.2. App configuration - LDAP/AD integration
-- menu → Administration settings → LDAP/AD integration
+- Menu → Administration settings → LDAP/AD integration
     - [https://archive.dakara.stream/settings/admin/ldap](https://archive.dakara.stream/settings/admin/ldap)
     - [https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_auth_ldap.html](https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_auth_ldap.html)
 
@@ -223,7 +226,7 @@ update('dependency_completion', `${result.result}%`, dv.current().file.path)
 > > (&(|(objectclass=groupOfUniqueNames))(|(cn=family)(cn=guests)))
 > > ```
 
-#### 3.2. App configuration - External storage
+#### 3.3. App configuration - External storage
 - Menu → Administration settings → External storage
     - [https://archive.dakara.stream/settings/admin/externalstorages](https://archive.dakara.stream/settings/admin/externalstorages)
     
@@ -235,10 +238,75 @@ update('dependency_completion', `${result.result}%`, dv.current().file.path)
 >
 > > [!note] Values
 > >
-| | |
 | Folder name | External storage | Authentication | Configuration                  | Available for |
 | ----------- | ---------------- | -------------- | ------------------------------ | ------------- |
 | Sdilene     | Local            | None           | /mnt/HomeArchiveData/Sdilene   | family, admin |
 | Media       | Local            | None           | /mnt/HomeArchiveData/Media     | All users     |
 | Stažené     | Local            | None           | /mnt/HomeArchiveData/Downloads | All users     |
+
+#### 3.4. App configuration - Memories
+ - Menu → Administration settings → Memories
+    - [https://archive.dakara.stream/settings/admin/memories](https://archive.dakara.stream/settings/admin/memories)
+
+##### 3.4.1. exclude non-media folders
+
+> [!info]- Steps
+> - Open truenas cli
+> - System Settings → shell
+> 	- https://admin.dakara.stream/ui/system/shell
+>
+> > [!note] Commands
+> >    ```shell
+> >    touch /mnt/HomeArchive/HomeArchiveData/Downloads/.nomemories
+> >    touch /mnt/HomeArchive/HomeArchiveData/Media/Filmy🎞️/.nomemories
+> >    touch /mnt/HomeArchive/HomeArchiveData/Media/Pořady📺/.nomemories
+> >    ```
+
+##### 3.4.1. Index & geocoding 
+- [https://memories.gallery/config/](https://memories.gallery/config/)
+- Open nextcloud cli
+
+> [!info]- Steps
+> - Open nextcloud cli
+> - TrueNAS Scale → Apps → Installed Applications
+> - Nextcloud → Workloads → Shell
+>
+| | |
+| --- | --- |
+| Pods | nextcloud-{#ID#-#ID#} |
+| Containers | nextcloud |
+| Commands | /bin/sh |
+>
+> > [!note] Commands
+> >    ```shell
+> >    php occ memories:places-setup
+> >    # takes about ~2-4 mins
+> >    
+> >    php occ memories:index
+> >    ```
+
+
+#### 3.5. General configuration - New user
+- Open nextcloud cli
+
+> [!info]- Steps
+> - TrueNAS Scale → Apps → Installed Applications
+> - Nextcloud → Workloads → Shell
+>
+| | |
+| --- | --- |
+| Pods | nextcloud-{#ID#-#ID#} |
+| Containers | nextcloud |
+| Commands | /bin/sh |
+>
+> > [!note] Commands
+> >    ```shell
+> >    # configure default nextcloud language
+> >    php occ config:system:set default_language --value="cs"
+> >    php occ config:system:set default_locale --value="cs_CZ"
+> >    php occ config:system:get default_language
+> >	
+> >    # set skeleton directory, default files for new users
+> >    php occ config:system:set skeletondirectory --value="/mnt/skeleton"
+> >    ```
 
