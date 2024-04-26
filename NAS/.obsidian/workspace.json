@@ -23,7 +23,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
+                "file": "UsedCommands.md",
                 "mode": "source",
                 "source": false
               }
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
+                "file": "UsedCommands.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
+                "file": "UsedCommands.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md"
+                "file": "UsedCommands.md"
               }
             }
           },
@@ -182,8 +182,10 @@
   },
   "active": "aada1f98b2a8a2e0",
   "lastOpenFiles": [
-    "NotionExported/IT Home TO-DOs/write Docs - nextcloud setup/write Docs - nextcloud setup.md",
+    "NotionExported/IT Home TO-DOs.csv",
     "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
+    "(write Docs - lldap.md",
+    "NotionExported/IT Home TO-DOs/write Docs - nextcloud setup/write Docs - nextcloud setup.md",
     "Dakara Tasks/Dakara Tasks.md",
     "Tasks/Tasks datasheet.md",
     "tmp Tasks/write Docs - Truecharts setup 1.md",
@@ -204,7 +206,6 @@
     "NotionExported/Dakara [TrueNAS SCALE]/Untitled Database.md",
     "NotionExported/IT Home TO-DOs/IT Home TO-DOs.md",
     "Dakara Tasks/write Docs - lldap.md",
-    "(write Docs - lldap.md",
     "tmp Tasks/Heimdall config.md",
     "NotionExported/IT Home TO-DOs/write Docs - Truecharts setup/write Docs - Truecharts setup.md",
     "Dakara Tasks/Cloudflared Tunnel.md",
@@ -217,7 +218,6 @@
     "NotionExported/IT Home TO-DOs/write Docs - photoprism setup.md",
     "NotionExported/IT Home TO-DOs/write Docs - truecharts essentials.md",
     "NotionExported/IT Home TO-DOs/Authelia global authentication.md",
-    "Dakara Tasks/HOME ASSISTANT fix.md",
     "_Assets/Scripts/dv-StatusCategoryUtils.js",
     "_Assets/Scripts/dv-getStatusCategory.js",
     "_Assets/Scripts/dv_",
