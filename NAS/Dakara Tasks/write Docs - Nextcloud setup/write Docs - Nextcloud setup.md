@@ -67,13 +67,13 @@ update('dependency_completion', `${result.result}%`, dv.current().file.path)
 | | |
 | ---- | ---- |
 | Application Name | name (default) |
-| Version                       | 29.10.33                                   |
+| Version                       | 29.10.36                                   |
 | App Configuration →           |                                            |
 | Initial Admin User            | asuran                                     |
 | Initial Admin Password        | "op://Private/nextcloud admin/password"    |
 | Default Phone Region          | CZ                                         |
 | Access IP                     | 192.168.0.21                               |
-| Shared Folder Name            | Sdíleno se mnou                            |
+| Shared Folder Name            | Sdileno se mnou                            |
 | Collabora configuration →     |                                            |
 | Enable Collabora              | Yes                                        |
 | username                      | asuran                                     |
@@ -136,11 +136,13 @@ update('dependency_completion', `${result.result}%`, dv.current().file.path)
 | Dashboard → Welcome | 1.1.0 | [settings/apps/dashboard/welcome](https://archive.dakara.stream/settings/apps/dashboard/welcome) |
 | Memories | 7.2.0 | [settings/apps/multimedia/memories](https://archive.dakara.stream/settings/apps/multimedia/memories) |
 | Preview Generator | 5.5.0 | [settings/apps/multimedia/previewgenerator](https://archive.dakara.stream/settings/apps/multimedia/previewgenerator) |
+| Recognize  | 6.1.1 | [settings/apps/enabled/recognize](https://archive.dakara.stream/settings/apps/enabled/recognize) |
 
 #### 3.2. App configuration - LDAP/AD integration
 - Menu → Administration settings → LDAP/AD integration
     - [https://archive.dakara.stream/settings/admin/ldap](https://archive.dakara.stream/settings/admin/ldap)
     - [https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_auth_ldap.html](https://docs.nextcloud.com/server/latest/admin_manual/configuration_user/user_auth_ldap.html)
+
 
 ##### 3.2.1 LDAP/AD integration → Server
 
@@ -162,7 +164,18 @@ update('dependency_completion', `${result.result}%`, dv.current().file.path)
 | Password | "op://Private/lldap nextcloud_user/password" |
 | Base DN | DC=dakara,DC=stream |
 
-##### 3.2.1 LDAP/AD integration → Users
+##### 3.2.2 LDAP/AD integration → Expert
+
+> [!info]- Steps
+>    - change default internal username from ldap uuid to uid (username)
+ >	
+> > [!note] Values
+> >
+| | |
+| --- | --- |
+| Internal Username Attribute | uid |
+
+##### 3.2.3 LDAP/AD integration → Users
 
 > [!tip]- Picture reference
 > ![[Dakara Tasks/write Docs - Nextcloud setup/_Attachments/conf-app-nextcloud-lldap-2.png]]
@@ -181,7 +194,7 @@ update('dependency_completion', `${result.result}%`, dv.current().file.path)
 > > )
 > > ```
 
-##### 3.2.1 LDAP/AD integration → Login Attributes
+##### 3.2.4 LDAP/AD integration → Login Attributes
 
 > [!tip]- Picture reference
 > ![[Dakara Tasks/write Docs - Nextcloud setup/_Attachments/conf-app-nextcloud-lldap-3.png]]
@@ -206,7 +219,7 @@ update('dependency_completion', `${result.result}%`, dv.current().file.path)
 > > (&( &(objectclass=person) (memberOf=cn=nextcloud_users,ou=groups,DC=dakara,DC=stream) )(|(uid=%uid)(|(mailPrimaryAddress=%uid)(mail=%uid))))
 > > ```
 
-##### 3.2.1 LDAP/AD integration → Groups
+##### 3.2.5 LDAP/AD integration → Groups
 
 > [!tip]- Picture reference
 > ![[Dakara Tasks/write Docs - Nextcloud setup/_Attachments/conf-app-nextcloud-lldap-4.png]]

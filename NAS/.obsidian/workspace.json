@@ -23,8 +23,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "UsedCommands.md",
-                "mode": "source",
+                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "UsedCommands.md",
+                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,7 +125,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "UsedCommands.md",
+                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -148,7 +148,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "UsedCommands.md"
+                "file": "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md"
               }
             }
           },
@@ -182,10 +182,11 @@
   },
   "active": "aada1f98b2a8a2e0",
   "lastOpenFiles": [
-    "NotionExported/IT Home TO-DOs.csv",
+    "UsedCommands.md",
     "Dakara Tasks/write Docs - Nextcloud setup/write Docs - Nextcloud setup.md",
-    "(write Docs - lldap.md",
     "NotionExported/IT Home TO-DOs/write Docs - nextcloud setup/write Docs - nextcloud setup.md",
+    "NotionExported/IT Home TO-DOs.csv",
+    "(write Docs - lldap.md",
     "Dakara Tasks/Dakara Tasks.md",
     "Tasks/Tasks datasheet.md",
     "tmp Tasks/write Docs - Truecharts setup 1.md",
@@ -211,7 +212,6 @@
     "Dakara Tasks/Cloudflared Tunnel.md",
     "Dakara Tasks/write Docs - Ngrok.md",
     "Dakara Tasks/HEIMDALL add all links.md",
-    "UsedCommands.md",
     "NotionExported/IT Home TO-DOs/Connection using a VPN.md",
     "NotionExported/IT Home TO-DOs/torrent client.md",
     "NotionExported/IT Home TO-DOs/write Docs - certificate authority.md",
@@ -227,7 +227,6 @@
     "Untitled",
     "_Assets/Scripts/folder_links.js",
     "_Assets/Scripts",
-    "Dakara Tasks/write Docs - Truecharts setup/_Attachments",
     "Untitled.canvas",
     "Dakara Tasks/Untitled.canvas"
   ]
